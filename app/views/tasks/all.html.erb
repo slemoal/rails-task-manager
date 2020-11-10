@@ -1,0 +1,19 @@
+<h1>List of tasks</h1>
+
+<div>
+    <% @tasks.each do |task| %>
+      <% if task.completed %>
+        <input type="checkbox" class="task" name="completed_task" checked>
+        <label for="task"><%= link_to task.title, task_path(task) %></label>
+        <br>
+      <% else %>
+        <input type="checkbox" class="task" name="uncompleted_task">
+        <label for="task"><%= link_to task.title, task_path(task) %></label>
+        <br>
+      <% end %>
+    <% end %>
+</div>
+
+<br>
+<%= link_to "Add a task", new_tasks_path %>
+<br>
